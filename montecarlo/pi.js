@@ -1,9 +1,10 @@
-var log = true;
+var debug = process.argv.indexOf('debug') >=0;
+if(debug) {
+	var tessel = require('tessel');
+}
 
 var inCircle = 0;
-
 var inSquare = 0;
-
 var radius = 100;
 
 function isInCircle(point) {
@@ -22,6 +23,8 @@ while(true) {
 	if(isInCircle(getRandomPoint())){
 		inCircle++;
 	}
-	if(log)
-		console.log(4*inCircle/inSquare);
+	var temp = 4*inCircle/inSquare;
+	if(debug)
+		tessel.led[0].toggle();
+		console.log(inSquare + ' ' + temp);
 }
