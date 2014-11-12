@@ -24,7 +24,8 @@ while(true) {
 		inCircle++;
 	}
 	var temp = 4*inCircle/inSquare;
-	if(debug)
+	if(debug) {
 		tessel.led[0].toggle();
 		console.log(inSquare + ' ' + temp);
+	}
 }
